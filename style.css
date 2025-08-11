@@ -1,0 +1,427 @@
+/* 基礎樣式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 標題樣式 */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: white;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    margin-bottom: 10px;
+}
+
+/* 計分板主要區域 */
+.scoreboard {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+    align-items: center;
+}
+
+/* 團隊區域樣式 */
+.team-section {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.team-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.team-header {
+    margin-bottom: 20px;
+}
+
+.team-name {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.team-name:focus {
+    outline: none;
+    background: #f0f0f0;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+}
+
+.hide-name-btn {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.hide-name-btn:hover {
+    background: #5a6268;
+    transform: scale(1.05);
+}
+
+/* 分數顯示樣式 */
+.score-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.score-number {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #007bff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    min-width: 120px;
+    text-align: center;
+}
+
+.score-controls {
+    display: flex;
+    gap: 15px;
+}
+
+.score-btn {
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.score-btn.plus {
+    background: #28a745;
+    color: white;
+}
+
+.score-btn.minus {
+    background: #dc3545;
+    color: white;
+}
+
+.score-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* 局數計數器樣式 */
+.game-counter {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    text-align: center;
+    min-width: 200px;
+}
+
+.game-counter h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.counter-display {
+    margin-bottom: 20px;
+}
+
+.counter-display span {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffc107;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.counter-controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.counter-btn {
+    background: #17a2b8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.counter-btn:hover {
+    background: #138496;
+    transform: scale(1.05);
+}
+
+/* 控制面板樣式 */
+.control-panel {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    margin-bottom: 30px;
+}
+
+.control-group {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.control-group:last-child {
+    margin-bottom: 0;
+}
+
+.control-group h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+select {
+    padding: 12px 20px;
+    border: 2px solid #ddd;
+    border-radius: 25px;
+    font-size: 1rem;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 200px;
+}
+
+select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 10px rgba(0,123,255,0.3);
+}
+
+.reset-btn, .clear-all-btn {
+    background: #6f42c1;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 10px;
+    transition: all 0.3s ease;
+}
+
+.reset-btn:hover, .clear-all-btn:hover {
+    background: #5a32a3;
+    transform: scale(1.05);
+}
+
+.clear-all-btn {
+    background: #e83e8c;
+}
+
+.clear-all-btn:hover {
+    background: #c73e6b;
+}
+
+/* 規則提示樣式 */
+.rules-info {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.rules-info h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.rules-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.rules-info li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    color: #666;
+    font-size: 1rem;
+}
+
+.rules-info li:last-child {
+    border-bottom: none;
+}
+
+.rules-info li:before {
+    content: "🏓 ";
+    margin-right: 10px;
+}
+
+/* 佈景主題樣式 */
+body.theme-bright {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+}
+
+body.theme-bright .team-section,
+body.theme-bright .game-counter,
+body.theme-bright .control-panel,
+body.theme-bright .rules-info {
+    background: #fff8f0;
+    border: 2px solid #ffd700;
+}
+
+body.theme-led {
+    background: #000;
+    color: #00ff00;
+}
+
+body.theme-led .team-section,
+body.theme-led .game-counter,
+body.theme-led .control-panel,
+body.theme-led .rules-info {
+    background: #000;
+    color: #00ff00;
+    border: 2px solid #00ff00;
+    box-shadow: 0 0 20px #00ff00;
+}
+
+body.theme-led .score-number {
+    color: #00ff00;
+    text-shadow: 0 0 10px #00ff00;
+}
+
+body.theme-red-blue .home-team {
+    border: 3px solid #dc3545;
+    background: linear-gradient(135deg, #fff5f5 0%, #ffe6e6 100%);
+}
+
+body.theme-red-blue .away-team {
+    border: 3px solid #007bff;
+    background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%);
+}
+
+body.theme-red-blue .home-team .score-number {
+    color: #dc3545;
+}
+
+body.theme-red-blue .away-team .score-number {
+    color: #007bff;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .scoreboard {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .game-counter {
+        order: -1;
+        min-width: auto;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .score-number {
+        font-size: 3rem;
+    }
+    
+    .team-name {
+        font-size: 1.5rem;
+    }
+    
+    .container {
+        padding: 15px;
+    }
+    
+    .score-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .score-controls {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .score-btn {
+        width: 60px;
+        height: 40px;
+        border-radius: 20px;
+    }
+    
+    .control-group {
+        margin-bottom: 20px;
+    }
+    
+    select {
+        min-width: 150px;
+    }
+}
+
+/* 動畫效果 */
+@keyframes scoreUpdate {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.score-update {
+    animation: scoreUpdate 0.3s ease-in-out;
+}
+
+/* 隱藏團隊名稱的樣式 */
+.team-name.hidden {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* 遊戲計數器隱藏樣式 */
+.game-counter.hidden {
+    display: none;
+}
+
+

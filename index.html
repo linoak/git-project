@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乒乓球計分板</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>乒乓球計分</h1>
+        </header>
+        
+        <div class="scoreboard">
+            <!-- 主隊區域 -->
+            <div class="team-section home-team">
+                <div class="team-header">
+                    <h2 class="team-name" contenteditable="true" data-team="home">主隊</h2>
+                    <div class="team-controls">
+                        <button class="hide-name-btn" onclick="toggleTeamName('home')">隱藏</button>
+                    </div>
+                </div>
+                
+                <div class="score-display">
+                    <div class="score-number" id="home-score">0</div>
+                    <div class="score-controls">
+                        <button class="score-btn minus" onclick="adjustScore('home', -1)">-1</button>
+                        <button class="score-btn plus" onclick="adjustScore('home', 1)">+1</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 局數顯示 -->
+            <div class="game-counter">
+                <h3>局數</h3>
+                <div class="counter-display">
+                    <span id="game-number">1</span>
+                </div>
+                <div class="counter-controls">
+                    <button class="counter-btn" onclick="adjustGame(1)">+1</button>
+                    <button class="counter-btn" onclick="adjustGame(-1)">-1</button>
+                </div>
+            </div>
+            
+            <!-- 客隊區域 -->
+            <div class="team-section away-team">
+                <div class="team-header">
+                    <h2 class="team-name" contenteditable="true" data-team="away">客隊</h2>
+                    <div class="team-controls">
+                        <button class="hide-name-btn" onclick="toggleTeamName('away')">隱藏</button>
+                    </div>
+                </div>
+                
+                <div class="score-display">
+                    <div class="score-number" id="away-score">0</div>
+                    <div class="score-controls">
+                        <button class="score-btn minus" onclick="adjustScore('away', -1)">-1</button>
+                        <button class="score-btn plus" onclick="adjustScore('away', 1)">+1</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 控制面板 -->
+        <div class="control-panel">
+            <div class="control-group">
+                <h3>佈景主題</h3>
+                <select id="theme-selector" onchange="changeTheme()">
+                    <option value="default">預設</option>
+                    <option value="bright">明亮風格</option>
+                    <option value="led">LED 螢幕</option>
+                    <option value="red-blue">紅隊 / 藍隊</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <h3>局數顯示</h3>
+                <select id="game-display-mode" onchange="changeGameDisplayMode()">
+                    <option value="show">顯示</option>
+                    <option value="hide">隱藏</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <button class="reset-btn" onclick="resetScores()">重置分數</button>
+                <button class="clear-all-btn" onclick="clearAllData()">清除所有資料</button>
+            </div>
+        </div>
+        
+        <!-- 遊戲規則提示 -->
+        <div class="rules-info">
+            <h3>乒乓球規則提示</h3>
+            <ul>
+                <li>每局先得11分者獲勝</li>
+                <li>若比分為10:10，需領先2分才能獲勝</li>
+                <li>通常採用5局3勝制</li>
+                <li>發球每2分輪換一次</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
+
